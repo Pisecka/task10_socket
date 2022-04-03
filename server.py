@@ -87,11 +87,12 @@ def start_server():
                 if text:
                     print('sending data back to the client')
                     conn.send(create_response(text, raddr))
+                    conn.close()
                     break
                 else:
                     print(f'no data from {raddr}')
+                    conn.close()
                     break
-                conn.close()
 
 
 if __name__ == '__main__':
